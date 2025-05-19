@@ -71,6 +71,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         rainbow: "rainbow var(--speed, 2s) infinite linear",
+        "shiny-text": "shiny-text 3s ease-in-out infinite",
       },
       keyframes: {
         marquee: {
@@ -105,6 +106,10 @@ const config = {
         rainbow: {
           "0%": { "background-position": "0%" },
           "100%": { "background-position": "200%" },
+        },
+        "shiny-text": {
+          "0%": { "background-position": "-100% 0" },
+          "100%": { "background-position": "200% 0" },
         },
       },
     },

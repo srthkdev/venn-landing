@@ -1,9 +1,13 @@
+import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
+import { ShimmerButton } from "@/components/magicui/shimmer-button";
+
 interface SectionProps {
   id?: string;
-  title?: string;
+  title: ReactNode;
   subtitle?: string;
   description?: string;
-  children?: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 
@@ -15,30 +19,24 @@ export default function Section({
   children,
   className,
 }: SectionProps) {
-  const sectionId = title ? title.toLowerCase().replace(/\s+/g, "-") : id;
   return (
-    <section id={id || sectionId}>
-      <div className={className}>
-        <div className="relative container mx-auto px-4 py-16 max-w-7xl">
-          <div className="text-center space-y-4 pb-6 mx-auto">
-            {title && (
-              <h2 className="text-sm text-primary font-mono font-medium tracking-wider uppercase">
+    <section id={id} className={cn("py-16 md:py-20", className)}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="flex justify-center">
+            <ShimmerButton className="shadow-2xl px-4 py-1.5 text-sm">
+              <span className="whitespace-pre-wrap text-center text-xs font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
                 {title}
-              </h2>
-            )}
-            {subtitle && (
-              <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
-                {subtitle}
-              </h3>
-            )}
-            {description && (
-              <p className="mt-6 text-lg leading-8 text-slate-600 max-w-2xl mx-auto">
-                {description}
-              </p>
-            )}
+              </span>
+            </ShimmerButton>
           </div>
-          {children}
+          {subtitle && (
+            <p className="mt-6 text-3xl font-medium leading-8 sm:text-4xl">
+              {subtitle}
+            </p>
+          )}
         </div>
+        <div className="mx-auto mt-16">{children}</div>
       </div>
     </section>
   );

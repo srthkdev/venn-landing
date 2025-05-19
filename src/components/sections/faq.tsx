@@ -9,7 +9,10 @@ import { siteConfig } from "@/lib/config";
 
 export default function FAQ() {
   return (
-    <Section title="FAQ" subtitle="Frequently asked questions">
+    <Section 
+      title="FAQ"
+      subtitle="Frequently asked questions"
+    >
       <div className="mx-auto my-12 md:max-w-[800px]">
         <Accordion
           type="single"

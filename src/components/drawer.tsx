@@ -49,10 +49,13 @@ export default function drawerDemo() {
           </nav>
         </DrawerHeader>
         <DrawerFooter>
-          <Link href="/login">
-            <ShinyButton className="w-full">
-              Login
-            </ShinyButton>
+          <Link 
+            href="https://github.com/akash8585/venn"
+            target="_blank" 
+            className="flex items-center justify-center gap-2 py-2 mb-3 border rounded-md hover:bg-primary/10"
+          >
+            <Icons.github className="w-5 h-5" />
+            <span>GitHub</span>
           </Link>
           <Link href="/signup" className="w-full sm:w-auto">
             <RainbowButton>

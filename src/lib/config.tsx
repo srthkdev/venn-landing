@@ -223,10 +223,10 @@ export const siteConfig = {
       question: "What kind of tasks can the 'Ask agent' perform?",
       answer: (
         <span>
-          The Ask agent can help you find specific information, like: "Make a
-          table of all job applicants with their contact info," "Summarize
-          customer issues from March," or "Show me emails I haven't replied to
-          yet." You can also initiate a full AI chat (Cmd+/) about your emails.
+          The Ask agent can help you find specific information, like: &ldquo;Make a
+          table of all job applicants with their contact info,&rdquo; &ldquo;Summarize
+          customer issues from March,&rdquo; or &ldquo;Show me emails I haven&apos;t replied to
+          yet.&rdquo; You can also initiate a full AI chat (Cmd+/) about your emails.
         </span>
       ),
     },

@@ -12,7 +12,7 @@ export default function Footer() {
           title={siteConfig.name}
           className="relative mr-6 flex items-center space-x-2"
         >
-          <Icons.logo className="w-auto h-[40px]" />
+          
           <span className="font-bold text-xl">{siteConfig.name}</span>
         </a>
 
@@ -27,7 +27,7 @@ export default function Footer() {
                       href={link.href}
                       className="group inline-flex cursor-pointer items-center justify-start gap-1 text-muted-foreground duration-200 hover:text-foreground hover:opacity-90"
                     >
-                      {link.icon && link.icon}
+                      
                       {link.text}
                       <ChevronRight className="h-4 w-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
                     </Link>

@@ -46,24 +46,26 @@ export default function Header() {
           <span className="font-bold text-xl">{siteConfig.name}</span>
         </Link>
 
-        <div className="hidden lg:block">
-          <div className="flex items-center ">
-            <nav className="mr-10">
-              <Menu />
-            </nav>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-center">
+          <nav>
+            <Menu />
+          </nav>
+        </div>
 
-            <div className="gap-4 flex items-center">
-              <Link href="/login">
-                <ShinyButton className="px-4 py-1.5 text-sm">
-                  Login
-                </ShinyButton>
-              </Link>
-              <Link href="/signup" className="w-full sm:w-auto">
-                <RainbowButton>
-                  Started Free
-                </RainbowButton>
-              </Link>
-            </div>
+        <div className="hidden lg:block">
+          <div className="flex items-center gap-4">
+            <Link 
+              href="https://github.com/akash8585/venn" 
+              target="_blank"
+              className="flex items-center hover:text-primary"
+            >
+              <Icons.github className="w-5 h-5" />
+            </Link>
+            <Link href="/signup" className="w-full sm:w-auto">
+              <RainbowButton>
+                Start Free
+              </RainbowButton>
+            </Link>
           </div>
         </div>
         <div className="mt-2 cursor-pointer block lg:hidden">

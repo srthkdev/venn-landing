@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import { Icons } from "@/components/icons";
 import HeroVideoDialog from "@/components/magicui/hero-video";
@@ -8,46 +9,43 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
+import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 const ease = [0.16, 1, 0.3, 1];
 
 function HeroPill() {
   return (
-    <motion.a
-      href="/blog/introducing-acme-ai"
-      className="flex w-auto items-center space-x-2 rounded-full bg-primary/20 px-2 py-1 ring-1 ring-accent whitespace-pre"
+    <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease }}
+      className="z-10"
     >
-      <div className="w-fit rounded-full bg-accent px-2 py-0.5 text-center text-xs font-medium text-primary sm:text-sm">
-        📣 Announcement
-      </div>
-      <p className="text-xs font-medium text-primary sm:text-sm">
-        Introducing Acme.ai
-      </p>
-      <svg
-        width="12"
-        height="12"
-        className="ml-1"
-        viewBox="0 0 12 12"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8.78141 5.33312L5.20541 1.75712L6.14808 0.814453L11.3334 5.99979L6.14808 11.1851L5.20541 10.2425L8.78141 6.66645H0.666748V5.33312H8.78141Z"
-          fill="hsl(var(--primary))"
-        />
-      </svg>
-    </motion.a>
+      <Link href="/blog/introducing-acme-ai">
+        <div className={cn(
+          "group rounded-full border border-black/5 bg-neutral-100 text-base transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
+        )}>
+          <AnimatedShinyText 
+            className="inline-flex items-center justify-center px-3 py-1 transition ease-out text-sm font-medium hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400" 
+            shimmerWidth={200}
+            shimmerColor="rgba(59, 130, 246, 0.7)"
+            duration="2.5s"
+          >
+            <span>✨ Introducing vennsend.mail</span>
+            <ArrowRightIcon className="ml-1.5 size-3.5 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+          </AnimatedShinyText>
+        </div>
+      </Link>
+    </motion.div>
   );
 }
 
 function HeroTitles() {
   return (
-    <div className="flex w-full max-w-2xl flex-col space-y-4 overflow-hidden pt-8">
+    <div className="flex w-full max-w-3xl flex-col space-y-3 overflow-hidden pt-6">
       <motion.h1
-        className="text-center text-4xl font-medium leading-tight text-foreground sm:text-5xl md:text-6xl"
+        className="text-center text-3xl font-medium leading-[1.3] pb-1 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent dark:from-neutral-100 dark:to-neutral-400 sm:text-4xl md:text-5xl"
         initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
         animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
         transition={{
@@ -56,10 +54,10 @@ function HeroTitles() {
           staggerChildren: 0.2,
         }}
       >
-        {["Automate", "your", "workflow", "with AI"].map((text, index) => (
+        {["Your", "AI-Native", "Inbox", "with", "Memory,", "Reasoning,", "Privacy"].map((text, index) => (
           <motion.span
             key={index}
-            className="inline-block px-1 md:px-2 text-balance font-semibold"
+            className="inline-block px-1 py-0.5 text-balance font-semibold"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -72,8 +70,8 @@ function HeroTitles() {
           </motion.span>
         ))}
       </motion.h1>
-      <motion.p
-        className="mx-auto max-w-xl text-center text-lg leading-7 text-muted-foreground sm:text-xl sm:leading-9 text-balance"
+      <motion.div
+        className="mx-auto max-w-xl text-center space-y-[2px]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -82,8 +80,13 @@ function HeroTitles() {
           ease,
         }}
       >
-        No matter what problem you have, our AI can help you solve it.
-      </motion.p>
+        <p className="text-base leading-[1.1] text-muted-foreground/90 sm:text-lg">
+          Email sucks. We check it constantly, waste hours sorting it, and still miss important messages.
+        </p>
+        <p className="text-base leading-[1.1] text-muted-foreground sm:text-lg">
+          Venn fixes this with an AI brain that reads your emails, tells you what matters, and remembers everything important.
+        </p>
+      </motion.div>
     </div>
   );
 }
@@ -103,14 +106,24 @@ function HeroCTA() {
           </RainbowButton>
         </Link>
       </motion.div>
-      <motion.p
-        className="mt-5 text-sm text-muted-foreground"
+      <motion.div
+        className="mt-4 flex flex-col items-center space-y-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.0, duration: 0.8 }}
       >
-        7 day free trial. No credit card required.
-      </motion.p>
+        <AnimatedShinyText 
+          className="text-sm font-medium"
+          shimmerWidth={120}
+          shimmerColor="rgba(59, 130, 246, 0.5)"
+          duration="3s"
+        >
+          Local-first privacy mode available
+        </AnimatedShinyText>
+        <span className="text-xs text-muted-foreground">
+          Keep your data secure with on-device processing
+        </span>
+      </motion.div>
     </>
   );
 }
@@ -138,6 +151,17 @@ export default function Hero2() {
   return (
     <section id="hero">
       <div className="relative flex w-full flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
+        <div className="absolute inset-0 -z-10">
+          <FlickeringGrid 
+            squareSize={3}
+            gridGap={8}
+            flickerChance={0.1}
+            color="rgb(0, 0, 0)"
+            maxOpacity={0.15}
+            className="h-full w-full dark:opacity-100 dark:[&_canvas]:invert"
+          />
+        </div>
+        <div className="absolute inset-x-0 top-0 -z-10 h-[50vh] bg-gradient-to-b from-background via-background/80 to-transparent"></div>
         <HeroPill />
         <HeroTitles />
         <HeroCTA />
